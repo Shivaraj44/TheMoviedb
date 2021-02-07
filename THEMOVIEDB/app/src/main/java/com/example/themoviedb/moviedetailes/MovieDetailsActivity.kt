@@ -7,6 +7,9 @@ import com.example.themoviedb.R
 import kotlinx.android.synthetic.main.activity_movie_details.*
 import kotlinx.android.synthetic.main.item.view.*
 
+/**
+ * Displays the selected movie information with starts and overview
+ */
 class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

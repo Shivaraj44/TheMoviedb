@@ -10,15 +10,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themoviedb.*
-import com.example.themoviedb.moviedetailes.MovieDetailsActivity
 import com.example.themoviedb.Search.SearchFragment
+import com.example.themoviedb.moviedetailes.MovieDetailsActivity
 import com.example.themoviedb.responce.ResultsItem
 import com.example.themoviedb.wishlistactivity.WishListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 /**
- First Screen to dis
+-First Screen which contains the list of movies in recyclerview with the help of retrofit2.
+-At the corner of each movie you can save the movies to watch later and at the top corner heart will
+display the saved movie list.
+-Search button to search any movies from the list.
  */
 class MainActivity : AppCompatActivity(), Main_Listner {
 
@@ -35,25 +38,29 @@ class MainActivity : AppCompatActivity(), Main_Listner {
 
         observeLiveData()
         select()
-        //   flProgressBar.visibility = View.VISIBLE
 
+        //passing to new Activity where it will display the list of saved movies
         show_watchlist.setOnClickListener(View.OnClickListener {
             val intent1 = Intent(this, WishListActivity::class.java)
             startActivity(intent1)
         })
 
-
+// Will take you to a fragment to do the search operation
         searchview.setOnClickListener(View.OnClickListener {
-          callFragment()
+            callFragment()
         })
     }
 
-    fun   callFragment()
-    {
-        val fragment=SearchFragment()
-        supportFragmentManager.beginTransaction().add(R.id.relativeLayoyt_fragment,fragment,
-            "fragment search").addToBackStack("frag").commit()
+    fun callFragment() {
+        val fragment = SearchFragment()
+        supportFragmentManager.beginTransaction().add(
+            R.id.relativeLayoyt_fragment, fragment,
+            "fragment search"
+        ).addToBackStack("frag").commit()
     }
+
+
+    //getting the list of movies from Viewmodel via liveData and observing
     private fun observeLiveData() {
         mainViewModel.liveData.observe(this, {
             when (it) {
@@ -74,6 +81,8 @@ class MainActivity : AppCompatActivity(), Main_Listner {
         })
     }
 
+
+    //Setting the Adapter and Layout Manager to the recyclerview
     private fun setRecyclerAdapter() {
         mainAdapter = Main_Adapter(dataModelList, this)
         val layoutManager = GridLayoutManager(this, 2)
@@ -83,6 +92,8 @@ class MainActivity : AppCompatActivity(), Main_Listner {
         }
     }
 
+
+//On Click of any item in the screen will open a new Activity to display the information about the movie
     override fun Onclick(resultsItem: ResultsItem) {
         val intent = Intent(this, MovieDetailsActivity::class.java)
         intent.putExtra("img_path", resultsItem.posterPath)
@@ -95,8 +106,7 @@ class MainActivity : AppCompatActivity(), Main_Listner {
 
     }
 
-
-
+//Used to Select the different type of movies accordingly
     fun select() {
         val option = arrayOf(
             "Popular",
@@ -125,7 +135,7 @@ class MainActivity : AppCompatActivity(), Main_Listner {
 
                     mainViewModel.callAPI2()
 
-                }else if(position==3){
+                } else if (position == 3) {
                     mainViewModel.callAPI3()
                 }
             }
@@ -147,7 +157,7 @@ class MainActivity : AppCompatActivity(), Main_Listner {
 
                     mainViewModel.callAPI2()
 
-                }else if(position==3){
+                } else if (position == 3) {
                     mainViewModel.callAPI3()
                 }
             }

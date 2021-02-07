@@ -5,6 +5,9 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ Adding the End URL and operations on Quarry
+ */
 interface ApiClient {
 
     @GET("/3/movie/popular?api_key=f93f2306dd57a8d5c1932faa0774cd16")

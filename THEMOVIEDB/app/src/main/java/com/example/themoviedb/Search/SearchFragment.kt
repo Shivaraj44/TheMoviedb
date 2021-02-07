@@ -17,7 +17,9 @@ import com.example.themoviedb.responce.ResultsItem
 import com.example.themoviedb.moviedetailes.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_search.*
 
-
+/**
+-Helps for search Operation and display the result in the in the recyclerview
+ */
 private lateinit var searchViewModel: SearchViewModel
 private lateinit var searchAdapter: Search_Adapter
 

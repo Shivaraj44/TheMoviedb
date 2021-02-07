@@ -8,6 +8,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ Intermediate class between Model and View which contains live data
+ which will update the view as soon as the result is absorbed by Model class
+
+ */
 class Main_ViewModel : ViewModel(), Callback<com.example.themoviedb.responce.Response> {
 
     private val repository = Main_Repository(this)

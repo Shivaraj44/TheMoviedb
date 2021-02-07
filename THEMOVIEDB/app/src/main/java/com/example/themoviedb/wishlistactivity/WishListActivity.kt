@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themoviedb.R
 import com.example.themoviedb.database.User
 import kotlinx.android.synthetic.main.activity_wish_list.*
-
+/**
+-Displaying the list of Saved Movies and can delete the unwanted movies
+ */
 class WishListActivity : AppCompatActivity() ,WishList_ClickListener{
 
     private var userList = emptyList<User>()

@@ -6,6 +6,9 @@ import com.bumptech.glide.Glide
 import com.example.themoviedb.database.User
 import kotlinx.android.synthetic.main.wishlist_item_select.view.*
 
+/**
+ Setting the Value to specific value and deleting the movie if pressed
+ */
 class WishList_ViewHolder(
     private val view: View,
     private val listener: WishList_ClickListener

@@ -8,7 +8,10 @@ import com.example.themoviedb.database.UserDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
+/**
+Performing the inserting and deleting of the movie list to database
 
+ */
 class WishList_ViewModel(private val context: Context) : ViewModel() {
 
 

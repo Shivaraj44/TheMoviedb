@@ -9,6 +9,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * USed to set-up the Base URL
+ * USed to cache the information offline
+ */
 class Network12(context: Context) {
     val cacheSize = (5 * 1024 * 1024).toLong()
     val myCache = Cache(context.cacheDir, cacheSize)

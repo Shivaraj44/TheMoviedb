@@ -5,7 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.themoviedb.R
 import com.example.themoviedb.database.User
-
+/**
+-Adjusting the adapter from viewhomder to list of data
+-update the adapter using itemsetchanged
+ */
 class WishList_Adapter(
     private var usersList: List<User>,
 

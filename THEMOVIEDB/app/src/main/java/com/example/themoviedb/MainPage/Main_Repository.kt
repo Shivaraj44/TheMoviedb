@@ -5,6 +5,9 @@ import com.example.themoviedb.retrofit.ApiClient
 import com.example.themoviedb.retrofit.Network12
 import retrofit2.Callback
 
+/**
+ * Model CLass which has the Logic and Comm with local and room database
+ */
 class Main_Repository(private val callback: Callback<Response>) {
 
     fun getListOfModel0() {

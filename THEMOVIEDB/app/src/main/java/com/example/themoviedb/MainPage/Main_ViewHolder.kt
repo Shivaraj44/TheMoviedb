@@ -10,7 +10,11 @@ import kotlinx.android.synthetic.main.item.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+/**
+ -Helper class for Adapter to complete recyclerview
+ -after clicking the heart checklist it will save all the information to database
 
+ */
 class Main_ViewHolder(private val view: View, var mainListner: Main_Listner) : RecyclerView.ViewHolder(view) {
 
     fun setData(dataModel: ResultsItem) {
@@ -36,21 +40,13 @@ class Main_ViewHolder(private val view: View, var mainListner: Main_Listner) : R
                             )
                         UserDatabase.getInstance(context).userDao.insertUser(user)
                     }
-                } else {
-
-                    //deleteUser(user)
+                }
 
 
                 }
-            }
+
 
         }
-//    }
-//    fun deleteUser(user: User) {
-//        CoroutineScope(IO).launch {
-//            UserDatabase.getInstance(context).userDao
-//                .deleteUser(user)
-//        }
-//    }
+
     }
 }
