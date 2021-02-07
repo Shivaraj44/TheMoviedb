@@ -18,4 +18,10 @@ interface ApiClient {
     @GET("/3/movie/now_playing?api_key=f93f2306dd57a8d5c1932faa0774cd16")
     fun getTrending3( ) : Call<ResponseTrending>
 
+
+
+    @GET("/3/search/movie")
+    fun seach(@Query("api_key") key: String,
+                  @Query("query") query: String) : Call<ResponseTrending>
+
 }

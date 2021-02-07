@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/relativeLayoyt_fragment"
     android:background="#212221"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-   <androidx.appcompat.widget.SearchView
+   <Button
        android:layout_width="wrap_content"
        android:tooltipText="Search Movie"
        android:backgroundTint="@color/white"

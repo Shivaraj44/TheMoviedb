@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themoviedb.*
 import com.example.themoviedb.moviedetailes.MovieDetailsActivity
+import com.example.themoviedb.srach.SearchFragment
 import com.example.themoviedb.wishlistactivity.WishListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,8 +36,19 @@ class MainActivity : AppCompatActivity(), Listner {
             val intent1 = Intent(this, WishListActivity::class.java)
             startActivity(intent1)
         })
+
+
+        searchview.setOnClickListener(View.OnClickListener {
+          callFragment()
+        })
     }
 
+    fun   callFragment()
+    {
+        val fragment=SearchFragment()
+        supportFragmentManager.beginTransaction().add(R.id.relativeLayoyt_fragment,fragment,
+            "fragment search").addToBackStack("frag").commit()
+    }
     private fun observeLiveData() {
         userViewModel.liveData.observe(this, {
             when (it) {
