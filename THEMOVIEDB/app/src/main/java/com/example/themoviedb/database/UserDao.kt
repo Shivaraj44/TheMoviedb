@@ -12,14 +12,8 @@ interface UserDao {
     @Insert
     suspend fun insertUser(user: User)
 
-    /*
-    This will return a LiveData<List<Users>> , so whenever the database is changed the observer
-    is notified
-     */
     @Query("Select * From Users")
     fun getAllUsers(): LiveData<List<User>>
-
-
 
     @Delete
     fun deleteUser(user: User)

@@ -6,41 +6,62 @@
     android:id="@+id/relativeLayoyt_fragment"
     android:background="#212221"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-   <Button
-       android:layout_width="wrap_content"
-       android:tooltipText="Search Movie"
-       android:backgroundTint="@color/white"
-       android:background="#7A7A75"
-
-       android:layout_height="wrap_content"
-      android:id="@+id/searchview"
-      />
-   <ImageView
-      android:id="@+id/show_watchlist"
-       android:layout_width="30dp"
-       android:layout_height="30dp"
+    tools:context=".MainPage.MainActivity">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       android:id="@+id/relative1"
        android:layout_marginTop="10dp"
-       android:layout_marginEnd="5dp"
-      android:src="@drawable/heart"
-android:layout_alignParentEnd="true"/>
+      >
+      <ImageView
+          android:layout_marginStart="10dp"
+          android:src="@drawable/search_icon"
+          android:layout_width="30dp"
+          android:tooltipText="Search Movie"
+android:layout_marginTop="5dp"
+          android:layout_height="30dp"
+          android:id="@+id/searchview"
+          />
+      <ImageView
+          android:id="@+id/show_watchlist"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginEnd="5dp"
+          android:src="@drawable/heart"
+          android:layout_alignParentEnd="true"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Search Movies"
+          android:textColor="@android:color/white"
+          android:textSize="20dp"
+          android:layout_toRightOf="@id/searchview"
+          android:layout_marginStart="10dp"
+          android:layout_marginTop="5dp"
+
+
+          />
+      <Spinner
+          android:backgroundTint="#222222"
+          android:popupBackground="#B1AFAF"
+          android:layout_marginTop="12dp"
+          android:background="#373938"
+          android:backgroundTintMode="screen"
+
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:id="@+id/spinner"
+          android:layout_toLeftOf="@id/show_watchlist"
+          android:layout_marginEnd="5dp"
+          />
+   </RelativeLayout>
+
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="match_parent"
-       android:layout_below="@id/searchview"
+       android:layout_below="@id/relative1"
        android:layout_height="match_parent"
        android:id="@+id/recycler_view"/>
 
-   <Spinner
-       android:backgroundTint="#222222"
-       android:popupBackground="#B1AFAF"
-       android:layout_marginTop="12dp"
-       android:background="#373938"
-       android:backgroundTintMode="screen"
-
-       android:layout_width="wrap_content"
-       android:layout_height="30dp"
-       android:id="@+id/spinner"
-       android:layout_toLeftOf="@id/show_watchlist"
-       android:layout_marginEnd="5dp"
-       />
 </RelativeLayout>

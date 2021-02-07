@@ -1,4 +1,4 @@
-package com.example.themoviedb.srach
+package com.example.themoviedb.Search
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.themoviedb.R
-import com.example.themoviedb.ResultsItem
+import com.example.themoviedb.responce.ResultsItem
 import com.example.themoviedb.moviedetailes.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -57,10 +57,10 @@ class SearchFragment : Fragment(), ItemClickListener {
             when (it) {
                 is SearchUIModel.Success -> {
                     searchAdapter.updateDataList(it.SearchList)
-                //    progressSearch.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                 }
                 is SearchUIModel.Failure -> {
-                 //   progressSearch.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                     Toast.makeText(
                         context,
                         "Error message ${it.error}",

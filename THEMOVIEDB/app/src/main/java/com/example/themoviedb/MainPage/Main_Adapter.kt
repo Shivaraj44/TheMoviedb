@@ -1,18 +1,20 @@
-package com.example.themoviedb
+package com.example.themoviedb.MainPage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.themoviedb.R
+import com.example.themoviedb.responce.ResultsItem
 
-class UserAdapter(private var dataModelList: List<ResultsItem>,var listner:Listner) :
-    RecyclerView.Adapter<UserViewHolder>() {
+class Main_Adapter(private var dataModelList: List<ResultsItem>, var mainListner: Main_Listner) :
+    RecyclerView.Adapter<Main_ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Main_ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        return UserViewHolder(view,listner)
+        return Main_ViewHolder(view,mainListner)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Main_ViewHolder, position: Int) {
         val dataModel = dataModelList[position]
         holder.setData(dataModel)
     }

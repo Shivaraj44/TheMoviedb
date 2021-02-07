@@ -6,9 +6,9 @@ import com.bumptech.glide.Glide
 import com.example.themoviedb.database.User
 import kotlinx.android.synthetic.main.wishlist_item_select.view.*
 
-class UserListViewHolder(
+class WishList_ViewHolder(
     private val view: View,
-    private val listener: RecyclerClickListener
+    private val listener: WishList_ClickListener
 ) : RecyclerView.ViewHolder(view) {
 
     fun setData(user: User) {

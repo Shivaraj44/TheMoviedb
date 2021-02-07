@@ -1,17 +1,17 @@
-package com.example.themoviedb
+package com.example.themoviedb.MainPage
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.themoviedb.database.User
 import com.example.themoviedb.database.UserDatabase
+import com.example.themoviedb.responce.ResultsItem
 import kotlinx.android.synthetic.main.item.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
-class UserViewHolder(private val view: View,var listner: Listner) : RecyclerView.ViewHolder(view) {
+class Main_ViewHolder(private val view: View, var mainListner: Main_Listner) : RecyclerView.ViewHolder(view) {
 
     fun setData(dataModel: ResultsItem) {
         view.apply {
@@ -22,11 +22,12 @@ class UserViewHolder(private val view: View,var listner: Listner) : RecyclerView
             title.text = dataModel.title
 
             libear_layout.setOnClickListener {
-                listner.Onclick(dataModel)
+                mainListner.Onclick(dataModel)
             }
             checkbox.setOnCheckedChangeListener { checkBox, isChecked ->
 
                 if (isChecked) {
+
                     CoroutineScope(Dispatchers.IO).launch {
                         val user =
                             User(

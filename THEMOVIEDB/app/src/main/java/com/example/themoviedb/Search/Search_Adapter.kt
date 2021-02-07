@@ -1,10 +1,10 @@
-package com.example.themoviedb.srach
+package com.example.themoviedb.Search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.themoviedb.R
-import com.example.themoviedb.ResultsItem
+import com.example.themoviedb.responce.ResultsItem
 
 class Search_Adapter (
     var searchList: List<ResultsItem>,

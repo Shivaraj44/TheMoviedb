@@ -1,4 +1,4 @@
-package com.example.themoviedb
+package com.example.themoviedb.MainPage
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,21 +11,26 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themoviedb.*
 import com.example.themoviedb.moviedetailes.MovieDetailsActivity
-import com.example.themoviedb.srach.SearchFragment
+import com.example.themoviedb.Search.SearchFragment
+import com.example.themoviedb.responce.ResultsItem
 import com.example.themoviedb.wishlistactivity.WishListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), Listner {
+
+/**
+ First Screen to dis
+ */
+class MainActivity : AppCompatActivity(), Main_Listner {
 
 
-    private lateinit var userViewModel: UserViewModel
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var mainViewModel: Main_ViewModel
+    private lateinit var mainAdapter: Main_Adapter
     private val dataModelList = emptyList<ResultsItem>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        selectwishlist()
+        mainViewModel = ViewModelProvider(this).get(Main_ViewModel::class.java)
+
         setRecyclerAdapter()
 
         observeLiveData()
@@ -50,14 +55,14 @@ class MainActivity : AppCompatActivity(), Listner {
             "fragment search").addToBackStack("frag").commit()
     }
     private fun observeLiveData() {
-        userViewModel.liveData.observe(this, {
+        mainViewModel.liveData.observe(this, {
             when (it) {
-                is UserUIModel.Success -> {
-                    userAdapter.updateList(it.dataModelList)
+                is Main_UIModel.Success -> {
+                    mainAdapter.updateList(it.dataModelList)
                     //   flProgressBar.visibility = View.GONE
                 }
 
-                is UserUIModel.Failure -> {
+                is Main_UIModel.Failure -> {
                     Toast.makeText(
                         this@MainActivity,
                         "Error message ${it.error}",
@@ -70,11 +75,11 @@ class MainActivity : AppCompatActivity(), Listner {
     }
 
     private fun setRecyclerAdapter() {
-        userAdapter = UserAdapter(dataModelList, this)
+        mainAdapter = Main_Adapter(dataModelList, this)
         val layoutManager = GridLayoutManager(this, 2)
         recycler_view.apply {
             this.layoutManager = layoutManager
-            adapter = userAdapter
+            adapter = mainAdapter
         }
     }
 
@@ -90,9 +95,7 @@ class MainActivity : AppCompatActivity(), Listner {
 
     }
 
-    fun selectwishlist() {
 
-    }
 
     fun select() {
         val option = arrayOf(
@@ -113,17 +116,17 @@ class MainActivity : AppCompatActivity(), Listner {
             ) {
                 if (position == 0) {
 
-                    userViewModel.callAPI0()
+                    mainViewModel.callAPI0()
 
                 } else if (position == 1) {
 
-                    userViewModel.callAPI1()
+                    mainViewModel.callAPI1()
                 } else if (position == 2) {
 
-                    userViewModel.callAPI2()
+                    mainViewModel.callAPI2()
 
                 }else if(position==3){
-                    userViewModel.callAPI3()
+                    mainViewModel.callAPI3()
                 }
             }
 
@@ -135,17 +138,17 @@ class MainActivity : AppCompatActivity(), Listner {
             ) {
                 if (position == 0) {
 
-                    userViewModel.callAPI0()
+                    mainViewModel.callAPI0()
 
                 } else if (position == 1) {
 
-                    userViewModel.callAPI1()
+                    mainViewModel.callAPI1()
                 } else if (position == 2) {
 
-                    userViewModel.callAPI2()
+                    mainViewModel.callAPI2()
 
                 }else if(position==3){
-                    userViewModel.callAPI3()
+                    mainViewModel.callAPI3()
                 }
             }
 

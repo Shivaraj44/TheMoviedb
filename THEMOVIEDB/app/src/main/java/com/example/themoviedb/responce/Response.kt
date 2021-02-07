@@ -1,8 +1,8 @@
-package com.example.themoviedb
+package com.example.themoviedb.responce
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseTrending(
+data class Response(
     @field:SerializedName("page")
     val page: Int? = null,
     @field:SerializedName("results")

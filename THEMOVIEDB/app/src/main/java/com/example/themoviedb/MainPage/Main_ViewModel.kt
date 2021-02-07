@@ -1,34 +1,35 @@
-package com.example.themoviedb
+package com.example.themoviedb.MainPage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.themoviedb.responce.ResultsItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserViewModel : ViewModel(), Callback<ResponseTrending> {
+class Main_ViewModel : ViewModel(), Callback<com.example.themoviedb.responce.Response> {
 
-    private val repository = UserRepository(this)
+    private val repository = Main_Repository(this)
 
-    private val mutableLiveData = MutableLiveData<UserUIModel>()
+    private val mutableLiveData = MutableLiveData<Main_UIModel>()
 
-    val liveData: LiveData<UserUIModel> = mutableLiveData
+    val liveData: LiveData<Main_UIModel> = mutableLiveData
 
     /**
      * This method is called once the response is received from the API
      */
-    override fun onResponse(call: Call<ResponseTrending>, response: Response<ResponseTrending>) {
+    override fun onResponse(call: Call<com.example.themoviedb.responce.Response>, response: Response<com.example.themoviedb.responce.Response>) {
         response.body()?.let {
-            mutableLiveData.value = UserUIModel.Success(it.results as List<ResultsItem>)
+            mutableLiveData.value = Main_UIModel.Success(it.results as List<ResultsItem>)
         }
     }
 
     /**
      * If the API response fails due to some reason this method gets invoked
      */
-    override fun onFailure(call: Call<ResponseTrending>, t: Throwable) {
-        mutableLiveData.value = UserUIModel.Failure(t.message!!)
+    override fun onFailure(call: Call<com.example.themoviedb.responce.Response>, t: Throwable) {
+        mutableLiveData.value = Main_UIModel.Failure(t.message!!)
     }
 
     /**

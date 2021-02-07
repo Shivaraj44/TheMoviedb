@@ -1,6 +1,6 @@
-package com.example.themoviedb.srach
+package com.example.themoviedb.Search
 
-import com.example.themoviedb.ResultsItem
+import com.example.themoviedb.responce.ResultsItem
 
 interface ItemClickListener {
     fun onItemClicked(position:Int,resultsItem: ResultsItem)

@@ -2,7 +2,7 @@ package com.example.themoviedb.wishlistactivity
 
 import com.example.themoviedb.database.User
 
-interface RecyclerClickListener {
+interface WishList_ClickListener {
 
 
 
