@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#212221"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+   <androidx.appcompat.widget.SearchView
+       android:layout_width="wrap_content"
+       android:tooltipText="Search Movie"
+       android:backgroundTint="@color/white"
+       android:background="#7A7A75"
+
+       android:layout_height="wrap_content"
+      android:id="@+id/searchview"
+      />
+   <ImageView
+      android:id="@+id/show_watchlist"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:layout_marginTop="10dp"
+       android:layout_marginEnd="5dp"
+      android:src="@drawable/heart"
+android:layout_alignParentEnd="true"/>
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_below="@id/searchview"
+       android:layout_height="match_parent"
+       android:id="@+id/recycler_view"/>
+
+   <Spinner
+       android:backgroundTint="#222222"
+       android:popupBackground="#B1AFAF"
+       android:layout_marginTop="12dp"
+       android:background="#373938"
+       android:backgroundTintMode="screen"
+
+       android:layout_width="wrap_content"
+       android:layout_height="30dp"
+       android:id="@+id/spinner"
+       android:layout_toLeftOf="@id/show_watchlist"
+       android:layout_marginEnd="5dp"
+       />
+</RelativeLayout>
